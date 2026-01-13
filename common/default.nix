@@ -53,6 +53,9 @@
     mpv
   ];
 
+  # Auto unlock wallet on login via PAM module (should help apps gain access to it)
+  security.pam.services.login.kwallet.enable = true;
+
   users.users.agni = {
     isNormalUser = true;
     description = "Agni Sairent";
