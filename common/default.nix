@@ -19,7 +19,40 @@
     LC_TIME = "cs_CZ.UTF-8";
   };
 
-  # Define a user account.
+  # Bootloader
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Enable CUPS to print documents
+  services.printing.enable = true;
+
+  # Enable sound with pipewire
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # KDE Plasma
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  # Blacklist unwanted plasma packages
+  environment.plasma6.excludePackages = with pkgs; [
+    kdePackages.kmahjongg
+    kdePackages.kmines
+    kdePackages.konversation
+    mpv
+  ];
+
   users.users.agni = {
     isNormalUser = true;
     description = "Agni Sairent";
@@ -30,10 +63,8 @@
     shell = pkgs.fish;
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Programs
   programs.fish.enable = true;
   programs.firefox.enable = true;
   programs.ssh = {
