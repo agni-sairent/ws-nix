@@ -76,4 +76,8 @@
     jetbrains.goland
     jetbrains.rust-rover
   ];
+
+  # DO NOT CHANGE: Tracks the NixOS version this host was first installed with.
+  # This is used for backwards compatibility, not the current system version.
+  system.stateVersion = "25.11";
 }

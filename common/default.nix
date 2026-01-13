@@ -73,6 +73,6 @@
     nerd-fonts.caskaydia-mono
   ];
 
-  # Copy the state version here as it's likely common for now
-  system.stateVersion = "25.11"; 
+  # Enable flakes permanently (no more --experimental-features flags needed)
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

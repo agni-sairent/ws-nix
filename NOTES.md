@@ -40,3 +40,41 @@ Build without switching (good for testing):
 ```bash
 nixos-rebuild dry-build --flake .
 ```
+
+---
+
+## Home Manager
+
+Home Manager manages **user-level** configuration (dotfiles, user packages, user services) declaratively, the same way NixOS manages system config.
+
+### Structure
+```
+home/common.nix           → Shared user config (Fish, Starship, Git)
+hosts/<hostname>/home.nix → Host-specific overrides (imports common.nix)
+```
+
+### Key Concepts
+- `programs.<name>.enable = true` — Enables and configures a program
+- `home.packages` — User-specific packages (alternative to system packages)
+- `home.file` — Manage arbitrary dotfiles
+- `home.stateVersion` — Same concept as `system.stateVersion`, don't change it
+
+### Useful Options Examples
+```nix
+# Shell abbreviations
+programs.fish.shellAbbrs = { k = "kubectl"; };
+
+# Git config
+programs.git.settings.user.email = "you@example.com";
+
+# Starship prompt
+programs.starship.enable = true;
+```
+
+### Finding Options
+Search available Home Manager options:
+```bash
+man home-configuration.nix
+```
+Or browse: https://nix-community.github.io/home-manager/options.xhtml
+
