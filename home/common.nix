@@ -3,8 +3,10 @@
 {
   programs.fish = {
     enable = true;
-    shellAbbrs = {
+    shellAliases = {
       k = "kubectl";
+      kctx = "kubectx";
+      kns = "kubens";
     };
   };
 
