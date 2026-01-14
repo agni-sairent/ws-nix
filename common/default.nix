@@ -57,10 +57,19 @@
   # Auto unlock wallet on login via PAM module (should help apps gain access to it)
   security.pam.services.login.kwallet.enable = true;
 
+  # Enable U2F auth for login and sudo (YubiKey) - setup: https://wiki.nixos.org/wiki/Yubikey
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
+
   users.users.agni = {
     isNormalUser = true;
     description = "Agni Sairent";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
     ];
@@ -77,7 +86,7 @@
 
   # Global env vars
   environment.variables = {
-    SSH_ASKPASS_REQUIRE = "prefer";	
+    SSH_ASKPASS_REQUIRE = "prefer";
   };
 
   # List packages installed in system profile.
@@ -138,5 +147,8 @@
   ];
 
   # Enable flakes permanently (no more --experimental-features flags needed)
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
