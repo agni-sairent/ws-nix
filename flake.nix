@@ -15,6 +15,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/hippaforalkus/default.nix
+        ./hosts/destiny/default.nix
         ./common/default.nix
         home-manager.nixosModules.home-manager
         {
