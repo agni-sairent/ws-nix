@@ -7,5 +7,5 @@
   # Override or extend common settings here
 
   # Work git email
-  programs.git.settings.user.email = "tichy@ics.muni.cz";
+  programs.git.settings.user.email = "tichy.dusan@proton.me";
 }
