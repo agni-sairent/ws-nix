@@ -15,7 +15,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/hippaforalkus/default.nix
-        ./hosts/destiny/default.nix
         ./common/default.nix
         home-manager.nixosModules.home-manager
         {
@@ -23,6 +22,21 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "hm-backup";
           home-manager.users.agni = import ./hosts/hippaforalkus/home.nix;
+        }
+      ];
+    };
+    nixosConfigurations.destiny = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/destiny/default.nix
+        ./common/default.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hm-backup";
+          home-manager.users.agni = import ./hosts/destiny/home.nix;
         }
       ];
     };
