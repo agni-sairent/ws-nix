@@ -99,6 +99,30 @@
     fzf
     fishPlugins.grc
     grc
+    # Home Dev
+    uv
+    antigravity
+    codex
+    jetbrains.pycharm
+    jetbrains.idea
+    jetbrains.goland
+    jetbrains.rust-rover
+    # Home Ops
+    fluxcd
+    kubectl
+    kubectl-cnpg
+    kubectx
+    postgresql_18
+    # The Rest
+    affine
+    discord
+    element-desktop
+    brave
+    pear-desktop
+    proton-pass
+    proton-pass-cli
+    protonvpn-gui
+    yubioath-flutter
   ];
 
   fonts.packages = with pkgs; [
