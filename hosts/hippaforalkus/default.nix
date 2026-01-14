@@ -1,17 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = "hippaforalkus";
 
   # Host specific packages
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
-    # Work
     jdk21_headless
   ];
 

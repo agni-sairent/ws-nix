@@ -45,7 +45,6 @@
   # KDE Plasma
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  # Install optional plasma packages
   # Blacklist unwanted plasma packages
   environment.plasma6.excludePackages = with pkgs; [
     kdePackages.kmahjongg
