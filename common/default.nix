@@ -61,7 +61,7 @@
     login.u2fAuth = true;
     sudo.u2fAuth = true;
   };
-  security.pam.settings.cue = true;
+  security.pam.u2f.settings.cue = true;
 
   users.users.agni = {
     isNormalUser = true;
