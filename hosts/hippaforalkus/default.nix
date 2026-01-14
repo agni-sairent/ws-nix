@@ -13,10 +13,6 @@
   environment.systemPackages = with pkgs; [
     # Work
     jdk21_headless
-    mattermost-desktop
-    teams-for-linux
-    thunderbird
-    eduvpn-client
   ];
 
   # DO NOT CHANGE: Tracks the NixOS version this host was first installed with.

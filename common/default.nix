@@ -91,6 +91,7 @@
     micro-full
     python314
     btop-rocm
+    nixfmt-rfc-style
     # Fish
     starship
     fishPlugins.done
@@ -123,6 +124,11 @@
     proton-pass-cli
     protonvpn-gui
     yubioath-flutter
+    # Work shared
+    mattermost-desktop
+    teams-for-linux
+    thunderbird
+    eduvpn-client
   ];
 
   fonts.packages = with pkgs; [
