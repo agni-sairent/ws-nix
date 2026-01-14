@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ <plasma-manager/modules> ];
-
   programs.fish = {
     enable = true;
     shellAliases = {
