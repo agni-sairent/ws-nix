@@ -91,7 +91,7 @@
     micro-full
     python314
     btop-rocm
-    nixfmt-rfc-style
+    nixfmt
     # Fish
     starship
     fishPlugins.done
