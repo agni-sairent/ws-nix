@@ -22,6 +22,9 @@
     };
   };
 
+  # Dotfiles
+  xdg.configFile."discord/settings.json".source = ./files/discord-settings.json;
+
   # DO NOT CHANGE: Tracks the Home Manager version this user config was first created with.
   home.stateVersion = "25.11";
 }
