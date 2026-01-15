@@ -69,6 +69,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [
       kdePackages.kate
@@ -88,6 +89,9 @@
   environment.variables = {
     SSH_ASKPASS_REQUIRE = "prefer";
   };
+
+  # Docker
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -138,6 +142,8 @@
     teams-for-linux
     thunderbird
     eduvpn-client
+    docker-buildx
+    docker-compose
   ];
 
   fonts.packages = with pkgs; [
