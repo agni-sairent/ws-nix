@@ -7,7 +7,13 @@
   ];
 
   networking.hostName = "destiny"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024;
+    }
+  ];
 
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];

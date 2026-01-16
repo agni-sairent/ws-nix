@@ -7,6 +7,13 @@
 
   networking.hostName = "hippaforalkus";
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024;
+    }
+  ];
+
   # Host specific packages
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
