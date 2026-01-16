@@ -57,6 +57,13 @@
   xdg.configFile."discord/settings.json".source = ./files/discord-settings.json;
   xdg.configFile."ghostty/config".source = ./files/ghostty-config;
 
+  # This file contains a reference to wherever the system ssh-agent create's its socket.
+  home.file = {
+    ".config/environment.d/ssh-agent.conf" = {
+      source = ./files/ssh-agent;
+    };
+  };
+
   # DO NOT CHANGE: Tracks the Home Manager version this user config was first created with.
   home.stateVersion = "25.11";
 }
