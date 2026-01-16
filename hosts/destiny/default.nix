@@ -13,6 +13,8 @@
       size = 32 * 1024;
     }
   ];
+  # Fixes Luks password prompt droping out of Plymouth
+  boot.initrd.systemd.enable = true;
 
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];

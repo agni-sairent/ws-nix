@@ -22,21 +22,16 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.consoleMode = "max";
 
   # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Plymouth
+  # https://wiki.nixos.org/wiki/Plymouth
   boot = {
     plymouth = {
       enable = true;
-      theme = "deus_ex";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "deus_ex" ];
-        })
-      ];
     };
 
     # Enable "Silent boot"
