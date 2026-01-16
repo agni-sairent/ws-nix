@@ -29,6 +29,13 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Auto delete generations older than 30 days
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # Enable CUPS to print documents
   services.printing.enable = true;
 
