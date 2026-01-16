@@ -13,8 +13,6 @@
       size = 32 * 1024;
     }
   ];
-  # Fixes Luks password prompt droping out of Plymouth
-  boot.initrd.systemd.enable = true;
 
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -37,7 +35,7 @@
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # This value determines the NixOS release from which the default
