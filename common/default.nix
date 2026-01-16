@@ -105,6 +105,8 @@
     python314
     btop-rocm
     nixfmt
+    # Dev
+    direnv
     # Fish
     starship
     fishPlugins.done
