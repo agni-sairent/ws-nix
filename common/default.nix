@@ -5,7 +5,7 @@
   time.timeZone = "Europe/Prague";
 
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocales = [ "cs_CZ.UTF-8" ];
+  i18n.extraLocales = [ "cs_CZ.UTF-8/UTF-8" ];
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "cs_CZ.UTF-8";
