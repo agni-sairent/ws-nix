@@ -8,6 +8,7 @@
   i18n.extraLocales = [ "cs_CZ.UTF-8/UTF-8" ];
 
   i18n.extraLocaleSettings = {
+    LC_COLLATE = "en_US.UTF-8";
     LC_ADDRESS = "cs_CZ.UTF-8";
     LC_IDENTIFICATION = "cs_CZ.UTF-8";
     LC_MEASUREMENT = "cs_CZ.UTF-8";
@@ -18,7 +19,6 @@
     LC_TELEPHONE = "cs_CZ.UTF-8";
     LC_TIME = "cs_CZ.UTF-8";
     LC_MESSAGES = "cs_CZ.UTF-8";
-    LC_COLLATE = "cs_CZ.UTF-8";
   };
 
   # Bootloader
