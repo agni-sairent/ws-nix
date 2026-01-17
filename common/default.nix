@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # Set your time zone.
+  # Timezone and Locales
   time.timeZone = "Europe/Prague";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -82,7 +82,6 @@
     kdePackages.kmahjongg
     kdePackages.kmines
     kdePackages.konversation
-    mpv
   ];
 
   # Auto unlock wallet on login via PAM module (should help apps gain access to it)
@@ -95,6 +94,7 @@
   };
   security.pam.u2f.settings.cue = true;
 
+  # Main user
   users.users.agni = {
     isNormalUser = true;
     description = "Agni Sairent";
@@ -180,6 +180,7 @@
     docker-compose
   ];
 
+  # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.caskaydia-cove
