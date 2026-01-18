@@ -8,6 +8,7 @@
   i18n.extraLocales = [ "cs_CZ.UTF-8/UTF-8" ];
 
   i18n.extraLocaleSettings = {
+    LC_CTYPE = "en_US.UTF-8";
     LC_COLLATE = "en_US.UTF-8";
     LC_ADDRESS = "cs_CZ.UTF-8";
     LC_IDENTIFICATION = "cs_CZ.UTF-8";
