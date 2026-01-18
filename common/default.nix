@@ -121,6 +121,7 @@
   # Global env vars
   environment.variables = {
     SSH_ASKPASS_REQUIRE = "prefer";
+    KUBECONFIG = "$HOME/.config/kubeconfigs/kubeconfig.yaml";
   };
 
   # Docker
