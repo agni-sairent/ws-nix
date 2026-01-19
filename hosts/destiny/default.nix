@@ -14,6 +14,16 @@
     }
   ];
 
+  # Disable hibernate
+  systemd = {
+    targets = {
+      hibernate = {
+        enable = false;
+        unitConfig.DefaultDependencies = "no";
+      };
+    };
+  };
+
   # Nvidia
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
