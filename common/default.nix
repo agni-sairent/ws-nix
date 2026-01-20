@@ -139,7 +139,6 @@
     python314
     btop-rocm
     nixfmt
-    # Dev
     direnv
     # Fish
     starship
@@ -157,6 +156,7 @@
     jetbrains.idea
     jetbrains.goland
     jetbrains.rust-rover
+    insomnia
     # Home Ops
     fluxcd
     kubectl
