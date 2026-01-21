@@ -141,7 +141,7 @@
     nixfmt
     direnv
     # KDE
-    kcalc
+    kdePackages.kcalc
     # Fish
     starship
     fishPlugins.done
