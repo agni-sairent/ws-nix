@@ -19,6 +19,9 @@
   # It will just not appear on screen unless a key is pressed
   boot.loader.timeout = 0;
 
+  # HW acceleration
+  hardware.graphics.enable = true;
+
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
     # Java
