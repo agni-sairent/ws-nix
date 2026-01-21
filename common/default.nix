@@ -176,6 +176,7 @@
     proton-pass-cli
     protonvpn-gui
     yubioath-flutter
+    fluffychat
     # Work shared
     mattermost-desktop
     teams-for-linux
