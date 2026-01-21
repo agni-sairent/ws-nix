@@ -142,6 +142,7 @@
     direnv
     # KDE
     kdePackages.kcalc
+    kdePackages.neochat
     # Fish
     starship
     fishPlugins.done
