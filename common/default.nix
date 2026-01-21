@@ -140,6 +140,8 @@
     btop-rocm
     nixfmt
     direnv
+    # KDE
+    kcalc
     # Fish
     starship
     fishPlugins.done
