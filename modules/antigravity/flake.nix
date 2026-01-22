@@ -1,27 +1,22 @@
-{ config, pkgs, lib, ... }:
-
 {
-  # If you use Google Chrome (unfree), this must be enabled somewhere.
-  # You can keep it here if you want it "Antigravity-owned".
-  nixpkgs.config.allowUnfree = true;
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
-  environment.systemPackages = with pkgs; [
-    antigravity
-    # Browser Antigravity can launch:
-    google-chrome
-    # Playwright browsers bundle that works on NixOS:
-    playwright-driver.browsers
-  ];
-
-  # Make Playwright use the Nix-provided browsers (so it doesn't download its own).
-  environment.sessionVariables = {
-    PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
-    PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = "true";
-    # Sometimes needed depending on tooling:
-    PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
-
-    # Optional: some apps look for these:
-    CHROME_BIN = "${pkgs.google-chrome}/bin/google-chrome-stable";
-    CHROME_PATH = "${pkgs.google-chrome}/bin/google-chrome-stable";
+  outputs = { self, nixpkgs, antigravity-nix, ... }: {
+    nixosConfigurations.your-hostname = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        {
+          environment.systemPackages = [
+            antigravity-nix.packages.x86_64-linux.default
+          ];
+        }
+      ];
+    };
   };
 }
