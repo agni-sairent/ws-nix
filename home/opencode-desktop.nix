@@ -1,13 +1,23 @@
 {
-  config,
-  pkgs,
-  opencode-desktop,
-  ...
-}:
+  inputs.opencode-desktop.url = "github:tomsch/opencode-desktop-nix";
 
-{
-  environment.systemPackages = [
-    # OpenCode
-    opencode-desktop.packages.x86_64-linux.default
-  ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      opencode-desktop,
+      ...
+    }:
+    {
+      # NixOS
+      nixosConfigurations.myhost = nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            environment.systemPackages = [
+              opencode-desktop.packages.x86_64-linux.default
+            ];
+          }
+        ];
+      };
+    };
 }
