@@ -8,15 +8,14 @@
   };
 
   outputs = { self, nixpkgs, antigravity-nix, ... }: {
-    nixosConfigurations.your-hostname = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
+    nixosModules.default =
+        { pkgs, ... }:
         {
           environment.systemPackages = [
             antigravity-nix.packages.x86_64-linux.default
           ];
-        }
-      ];
+        };
+
+      packages.x86_64-linux.default = antigravity-nix.packages.x86_64-linux.default;
     };
-  };
 }
