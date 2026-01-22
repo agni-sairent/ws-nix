@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    opencode-desktop.url = "github:tomsch/opencode-desktop-nix";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      opencode-desktop,
       ...
     }@inputs:
     {

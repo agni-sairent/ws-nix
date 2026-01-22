@@ -64,6 +64,15 @@
     };
   };
 
+  # OpenCode
+  nixpkgs.lib.nixosSystem {
+    modules = [{
+      environment.systemPackages = [
+        opencode-desktop.packages.x86_64-linux.default
+      ];
+    }];
+  };
+
   # DO NOT CHANGE: Tracks the Home Manager version this user config was first created with.
   home.stateVersion = "25.11";
 }
