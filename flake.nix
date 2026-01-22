@@ -12,8 +12,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    opencode-desktop = {
-      url = "github:tomsch/opencode-desktop-nix";
+    opencode-desktop-module = {
+      url = "path:./modules/opencode-desktop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -24,7 +24,6 @@
       nixpkgs,
       home-manager,
       plasma-manager,
-      opencode-desktop,
       ...
     }@inputs:
     let
@@ -37,12 +36,9 @@
         modules = [
           ./hosts/hippaforalkus/default.nix
           ./common/default.nix
+          inputs.opencode-desktop-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
-            environment.systemPackages = [
-              opencode-desktop.packages.${system}.default
-            ];
-
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "hm-backup";
@@ -57,12 +53,9 @@
         modules = [
           ./hosts/destiny/default.nix
           ./common/default.nix
+          inputs.opencode-desktop-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
-            environment.systemPackages = [
-              opencode-desktop.packages.${system}.default
-            ];
-
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "hm-backup";
