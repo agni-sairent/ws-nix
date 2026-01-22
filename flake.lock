@@ -36,25 +36,12 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1768886240,
-        "narHash": "sha256-C2TjvwYZ2VDxYWeqvvJ5XPPp6U7H66zeJlRaErJKoEM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "80e4adbcf8992d3fd27ad4964fbb84907f9478b0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "opencode-desktop": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": [
+          "opencode-desktop-module",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1769062208,
@@ -69,6 +56,23 @@
         "repo": "opencode-desktop-nix",
         "type": "github"
       }
+    },
+    "opencode-desktop-module": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "opencode-desktop": "opencode-desktop"
+      },
+      "locked": {
+        "path": "./modules/opencode-desktop",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules/opencode-desktop",
+        "type": "path"
+      },
+      "parent": []
     },
     "plasma-manager": {
       "inputs": {
@@ -97,7 +101,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "opencode-desktop": "opencode-desktop",
+        "opencode-desktop-module": "opencode-desktop-module",
         "plasma-manager": "plasma-manager"
       }
     }
