@@ -31,6 +31,7 @@
         modules = [
           ./hosts/hippaforalkus/default.nix
           ./common/default.nix
+          ./common/opencode-desktop.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -47,6 +48,7 @@
         modules = [
           ./hosts/destiny/default.nix
           ./common/default.nix
+          ./common/opencode-desktop.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
