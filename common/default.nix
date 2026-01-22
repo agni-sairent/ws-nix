@@ -132,6 +132,7 @@
     # System
     pam_u2f
     wireguard-tools
+    kdePackages.partitionmanager
     # Core
     git
     ghostty
