@@ -139,6 +139,7 @@
     micro-full
     python314
     btop-rocm
+    gparted-full
     nixfmt
     direnv
     # KDE
