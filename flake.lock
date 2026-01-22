@@ -36,44 +36,6 @@
         "type": "github"
       }
     },
-    "opencode-desktop": {
-      "inputs": {
-        "nixpkgs": [
-          "opencode-desktop-module",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1769062208,
-        "narHash": "sha256-51UhamIwElkM3jctDgpnpNgNQ0JvewuL/wqqah+Kyc8=",
-        "owner": "tomsch",
-        "repo": "opencode-desktop-nix",
-        "rev": "0f1130d9f86ec83fce0f07ecdebd5a70da060003",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tomsch",
-        "repo": "opencode-desktop-nix",
-        "type": "github"
-      }
-    },
-    "opencode-desktop-module": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "opencode-desktop": "opencode-desktop"
-      },
-      "locked": {
-        "path": "./modules/opencode-desktop",
-        "type": "path"
-      },
-      "original": {
-        "path": "./modules/opencode-desktop",
-        "type": "path"
-      },
-      "parent": []
-    },
     "plasma-manager": {
       "inputs": {
         "home-manager": [
@@ -101,7 +63,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "opencode-desktop-module": "opencode-desktop-module",
         "plasma-manager": "plasma-manager"
       }
     }
