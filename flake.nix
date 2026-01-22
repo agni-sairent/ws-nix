@@ -24,6 +24,7 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      antigravity-module,
       ...
     }@inputs:
     let
