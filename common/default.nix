@@ -155,7 +155,6 @@
     grc
     # Home Dev
     uv
-    antigravity
     codex
     jetbrains.pycharm
     jetbrains.idea

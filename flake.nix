@@ -12,10 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    opencode-desktop-module = {
-      url = "path:./modules/opencode-desktop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -35,6 +31,7 @@
         modules = [
           ./hosts/hippaforalkus/default.nix
           ./common/default.nix
+          ./modules/antigravity/flake.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -50,6 +47,7 @@
         modules = [
           ./hosts/destiny/default.nix
           ./common/default.nix
+          ./modules/antigravity/flake.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
