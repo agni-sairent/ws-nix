@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    antigravity-module = {
+      url = "path:./modules/antigravity";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -31,7 +35,7 @@
         modules = [
           ./hosts/hippaforalkus/default.nix
           ./common/default.nix
-          ./modules/antigravity/flake.nix
+          inputs.antigravity-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -47,7 +51,7 @@
         modules = [
           ./hosts/destiny/default.nix
           ./common/default.nix
-          ./modules/antigravity/flake.nix
+          inputs.antigravity-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
