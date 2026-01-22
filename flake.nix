@@ -31,12 +31,10 @@
     in
     {
       nixosConfigurations.hippaforalkus = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/hippaforalkus/default.nix
           ./common/default.nix
-          inputs.opencode-desktop-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -48,12 +46,10 @@
         ];
       };
       nixosConfigurations.destiny = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/destiny/default.nix
           ./common/default.nix
-          inputs.opencode-desktop-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
