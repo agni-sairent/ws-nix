@@ -155,6 +155,7 @@
     uv
     antigravity
     codex
+    opencode
     jetbrains.pycharm
     jetbrains.idea
     jetbrains.goland
