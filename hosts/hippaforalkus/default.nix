@@ -19,14 +19,13 @@
   # It will just not appear on screen unless a key is pressed
   boot.loader.timeout = 0;
 
+  # Fixes low resolution on boot
+  hardware.amdgpu.initrd.enable = true;
+
   # HW acceleration
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [
-      mesa-va-drivers
-      mesa-vdpau
-      libvdpau-va-gl
-    ];
+    enable32Bit = true;
   };
 
   programs.firefox.enable = true;
@@ -39,13 +38,6 @@
     libva-utils
     vdpauinfo
   ];
-
-  # AMD iGPU (radeonsi) – helps when auto-detection is flaky
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "radeonsi";
-    VDPAU_DRIVER = "radeonsi";
-  };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
