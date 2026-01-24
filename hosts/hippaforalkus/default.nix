@@ -20,7 +20,14 @@
   boot.loader.timeout = 0;
 
   # HW acceleration
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      mesa-va-drivers
+      mesa-vdpau
+      libvdpau-va-gl
+    ];
+  };
 
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
@@ -28,7 +35,17 @@
     jdk21_headless
     jdk25_headless
     maven
+    # AMD GPU
+    libva-utils
+    vdpauinfo
   ];
+
+  # AMD iGPU (radeonsi) – helps when auto-detection is flaky
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+    VDPAU_DRIVER = "radeonsi";
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
