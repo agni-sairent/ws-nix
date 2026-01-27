@@ -49,7 +49,7 @@
     ];
   };
 
-  # Fixes Luks password prompt droping out of Plymouth
+  # Fixes Luks password prompt dropping out of Plymouth; default
   boot.initrd.systemd.enable = true;
 
   # Enable networking
@@ -168,6 +168,7 @@
     kubectx
     postgresql_18
     # The Rest
+    solaar
     affine
     discord
     element-desktop

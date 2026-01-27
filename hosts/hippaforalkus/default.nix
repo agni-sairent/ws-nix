@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+    luksMapperName = "luks-a29491d9-b62f-4595-8e78-c63bae1b4ef6";
+    luksPhysPartition = "/dev/nvme0n1p3";
+in {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -18,6 +21,16 @@
   # It's still possible to open the bootloader list by pressing any key
   # It will just not appear on screen unless a key is pressed
   boot.loader.timeout = 0;
+
+  # Enable Fido2 LUKS2 unlock
+  boot.initrd = {
+    systemd.enable = true;
+    luks.fido2Support = false;
+    luks.devices.${luksMapperName} = {
+      device = "${luksPhysPartition}";
+      crypttabExtraOpts = ["fido2-device=auto"];  # cryptenroll
+    };
+  };
 
   # Fixes low resolution on boot
   hardware.amdgpu.initrd.enable = true;
