@@ -72,6 +72,10 @@
             home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
             home-manager.users.agni = import ./hosts/destiny/home.nix;
           }
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ overlay ];
+            environment.systemPackages = [ pkgs.opencode ];
+          })
         ];
       };
     };
