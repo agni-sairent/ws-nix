@@ -62,8 +62,9 @@
     ".config/environment.d/ssh-agent.conf" = {
       source = ./files/ssh-agent;
     };
-    ".agents" = {
+    ".config/agents" = {
       source = "./files/agents";
+      recursive = true;
     };
   };
 
