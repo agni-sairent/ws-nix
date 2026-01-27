@@ -63,7 +63,7 @@
       source = ./files/ssh-agent;
     };
     ".config/agents" = {
-      source = "./files/agents";
+      source = ./files/agents;
       recursive = true;
     };
   };
