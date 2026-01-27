@@ -29,8 +29,14 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      overlay = final: prev: {
+        opencode = final.callPackage ./pkgs/opencode { };
+      };
+      pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; };
     in
     {
+      packages.${system}.opencode = pkgs.opencode;
+
       nixosConfigurations.hippaforalkus = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
