@@ -63,7 +63,7 @@
       source = ./files/ssh-agent;
     };
     ".agents" = {
-      source = "files/agents";
+      source = "./files/agents";
     };
   };
 
