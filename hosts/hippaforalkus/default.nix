@@ -23,12 +23,15 @@ in {
   boot.loader.timeout = 0;
 
   # Enable Fido2 LUKS2 unlock
-  # Sauce: https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/2
+  # Source: https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/2
+  # disk att is defined in HW configuration
+  # fallbackToPassword seems sane in this case.
   boot.initrd = {
     systemd.enable = true;
     luks.fido2Support = false; # Cuz systemd
     luks.devices.${luksMapperName} = {
       crypttabExtraOpts = ["fido2-device=auto"];
+      fallbackToPassword = true;
     };
   };
 
