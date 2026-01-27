@@ -5,9 +5,6 @@
     ./hardware-configuration.nix
   ];
 
-  # Fixes Luks password prompt dropping out of Plymouth; default
-  boot.initrd.systemd.enable = true;
-
   networking.hostName = "destiny";
 
   swapDevices = [

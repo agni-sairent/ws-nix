@@ -49,6 +49,9 @@
     ];
   };
 
+  # Fixes Luks password prompt dropping out of Plymouth; default
+  boot.initrd.systemd.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
