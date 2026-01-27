@@ -35,6 +35,7 @@
       pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; };
     in
     {
+      # Overrides the original OpenCode package with local fork
       packages.${system}.opencode = pkgs.opencode;
 
       nixosConfigurations.hippaforalkus = nixpkgs.lib.nixosSystem {
