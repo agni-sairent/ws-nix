@@ -95,6 +95,9 @@
   };
   security.pam.u2f.settings.cue = true;
 
+  # Udev rules so things like Solaar can work without root with Logi receivers
+  hardware.logitech.wireless.enable = true;
+
   # Main user
   users.users.agni = {
     isNormalUser = true;
