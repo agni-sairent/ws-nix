@@ -159,6 +159,7 @@
     # Home Dev
     uv
     codex
+    opencode
     jetbrains.pycharm
     jetbrains.idea
     jetbrains.goland
