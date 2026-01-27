@@ -23,12 +23,12 @@ in {
   boot.loader.timeout = 0;
 
   # Enable Fido2 LUKS2 unlock
+  # Sauce: https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/2
   boot.initrd = {
     systemd.enable = true;
-    luks.fido2Support = false;
+    luks.fido2Support = false; # Cuz systemd
     luks.devices.${luksMapperName} = {
-      device = "${luksPhysPartition}";
-      crypttabExtraOpts = ["fido2-device=auto"];  # cryptenroll
+      crypttabExtraOpts = ["fido2-device=auto"];
     };
   };
 
