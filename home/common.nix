@@ -62,6 +62,10 @@
     ".config/environment.d/ssh-agent.conf" = {
       source = ./files/ssh-agent;
     };
+    ".config/agents" = {
+      source = ./files/agents;
+      recursive = true;
+    };
   };
 
   # DO NOT CHANGE: Tracks the Home Manager version this user config was first created with.

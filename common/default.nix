@@ -49,7 +49,7 @@
     ];
   };
 
-  # Fixes Luks password prompt droping out of Plymouth
+  # Fixes Luks password prompt dropping out of Plymouth; default
   boot.initrd.systemd.enable = true;
 
   # Enable networking
@@ -95,6 +95,9 @@
   };
   security.pam.u2f.settings.cue = true;
 
+  # Udev rules so things like Solaar can work without root with Logi receivers
+  hardware.logitech.wireless.enable = true;
+
   # Main user
   users.users.agni = {
     isNormalUser = true;
@@ -132,14 +135,19 @@
     # System
     pam_u2f
     wireguard-tools
+    kdePackages.partitionmanager
     # Core
     git
     ghostty
     micro-full
     python314
     btop-rocm
+    gparted-full
     nixfmt
     direnv
+    # KDE
+    kdePackages.kcalc
+    # kdePackages.neochat wtf is wrong with this
     # Fish
     starship
     fishPlugins.done
@@ -150,8 +158,8 @@
     grc
     # Home Dev
     uv
-    antigravity
     codex
+    opencode
     jetbrains.pycharm
     jetbrains.idea
     jetbrains.goland
@@ -164,6 +172,7 @@
     kubectx
     postgresql_18
     # The Rest
+    solaar
     affine
     discord
     element-desktop
@@ -173,6 +182,7 @@
     proton-pass-cli
     protonvpn-gui
     yubioath-flutter
+    fluffychat
     # Work shared
     mattermost-desktop
     teams-for-linux

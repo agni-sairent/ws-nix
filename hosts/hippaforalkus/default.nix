@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+    luksMapperName = "luks-a29491d9-b62f-4595-8e78-c63bae1b4ef6";
+    luksPhysPartition = "/dev/nvme0n1p3";
+in {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -19,12 +22,35 @@
   # It will just not appear on screen unless a key is pressed
   boot.loader.timeout = 0;
 
+  # Enable Fido2 LUKS2 unlock
+  # Source: https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/2
+  # disk att is defined in HW configuration
+  boot.initrd = {
+    systemd.enable = true;
+    luks.fido2Support = false; # Cuz systemd
+    luks.devices.${luksMapperName} = {
+      crypttabExtraOpts = ["fido2-device=auto"];
+    };
+  };
+
+  # Fixes low resolution on boot
+  hardware.amdgpu.initrd.enable = true;
+
+  # HW acceleration
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
     # Java
     jdk21_headless
     jdk25_headless
     maven
+    # AMD GPU
+    libva-utils
+    vdpauinfo
   ];
 
   # This value determines the NixOS release from which the default
