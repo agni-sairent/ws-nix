@@ -50,7 +50,7 @@
           ./common/default.nix
           inputs.antigravity-module.nixosModules.default
           home-manager.nixosModules.home-manager
-          lanzaboote.nixosModules.lanzaboote
+#          lanzaboote.nixosModules.lanzaboote
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -65,11 +65,11 @@
               pkgs.sbctl
             ];
             # Lanzaboote replaces the systemd-boot module.
-            boot.loader.systemd-boot.enable = lib.mkForce false;
-            boot.lanzaboote = {
-              enable = true;
-              pkiBundle = "/var/lib/sbctl";
-            };
+#            boot.loader.systemd-boot.enable = lib.mkForce false;
+#            boot.lanzaboote = {
+#              enable = true;
+#              pkiBundle = "/var/lib/sbctl";
+#            };
           })
         ];
       };
