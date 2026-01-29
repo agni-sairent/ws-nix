@@ -116,7 +116,7 @@
   # Autologin - since we're encrypting everything anyway
   services.displayManager = {
 	autoLogin.enable = true;
-	autoLogin.user = 'agni';
+	autoLogin.user = "agni";
   }
 
   nixpkgs.config.allowUnfree = true;
