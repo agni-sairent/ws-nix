@@ -84,12 +84,13 @@
               pkgs.opencode
               pkgs.sbctl
             ];
-            # Lanzaboote replaces the systemd-boot module.
-            boot.loader.systemd-boot.enable = lib.mkForce false;
-            boot.lanzaboote = {
-              enable = true;
-              pkiBundle = "/var/lib/sbctl";
-            };
+            # Broken with nvidia - minimal value
+#            # Lanzaboote replaces the systemd-boot module.
+#            boot.loader.systemd-boot.enable = lib.mkForce false;
+#            boot.lanzaboote = {
+#              enable = true;
+#              pkiBundle = "/var/lib/sbctl";
+#            };
           })
         ];
       };
