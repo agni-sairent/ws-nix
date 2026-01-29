@@ -186,7 +186,7 @@
     # Work shared
     mattermost-desktop
     teams-for-linux
-    thunderbird
+    thunderbird-bin
     eduvpn-client
     docker-buildx
     docker-compose
