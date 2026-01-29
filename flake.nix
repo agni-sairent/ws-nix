@@ -50,6 +50,7 @@
           ./common/default.nix
           inputs.antigravity-module.nixosModules.default
           home-manager.nixosModules.home-manager
+          lanzaboote.nixosModules.lanzaboote
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -57,9 +58,18 @@
             home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
             home-manager.users.agni = import ./hosts/hippaforalkus/home.nix;
           }
-          ({ pkgs, ... }: {
+          ({ pkgs, libs, ... }: {
             nixpkgs.overlays = [ overlay ];
-            environment.systemPackages = [ pkgs.opencode ];
+            environment.systemPackages = [
+              pkgs.opencode
+              pkgs.sbctl
+            ];
+            # Lanzaboote replaces the systemd-boot module.
+            boot.loader.systemd-boot.enable = lib.mkForce false;
+            boot.lanzaboote = {
+              enable = true;
+              pkiBundle = "/var/lib/sbctl";
+            };
           })
         ];
       };
