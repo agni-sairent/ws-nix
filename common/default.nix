@@ -142,6 +142,7 @@
     # System
     pam_u2f
     wireguard-tools
+    sbctl
     kdePackages.partitionmanager
     # Core
     git
