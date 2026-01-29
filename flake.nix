@@ -16,6 +16,10 @@
       url = "path:./modules/antigravity";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +29,7 @@
       home-manager,
       plasma-manager,
       antigravity-module,
+      lanzaboote,
       ...
     }@inputs:
     let
@@ -65,6 +70,7 @@
           ./common/default.nix
           inputs.antigravity-module.nixosModules.default
           home-manager.nixosModules.home-manager
+          lanzaboote.nixosModules.lanzaboote
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -72,11 +78,18 @@
             home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
             home-manager.users.agni = import ./hosts/destiny/home.nix;
           }
-          ({ pkgs, ... }: {
+          ({ pkgs, lib, ... }: {
             nixpkgs.overlays = [ overlay ];
             environment.systemPackages = [
               pkgs.opencode
+              pkgs.sbctl
             ];
+            # Lanzaboote replaces the systemd-boot module.
+            boot.loader.systemd-boot.enable = lib.mkForce false;
+            boot.lanzaboote = {
+              enable = true;
+              pkiBundle = "/var/lib/sbctl";
+            };
           })
         ];
       };
