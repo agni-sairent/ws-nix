@@ -2,7 +2,6 @@
 
 let
     luksMapperName = "luks-a29491d9-b62f-4595-8e78-c63bae1b4ef6";
-    luksPhysPartition = "/dev/nvme0n1p3";
 in {
   imports = [
     ./hardware-configuration.nix

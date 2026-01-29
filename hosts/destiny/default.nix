@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+    luksMapperName = "luks-f418b102-8600-41ad-a74a-e399fe15d45f";
+in {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -13,6 +15,19 @@
       size = 32 * 1024;
     }
   ];
+
+  # Nvidia kernel modules + Enable Fido2 LUKS2 unlock
+  # Source: https://discourse.nixos.org/t/fde-using-systemd-cryptenroll-with-fido2-key/47762/2
+  # disk att is defined in HW configuration
+  boot.initrd = {
+    systemd.enable = true;
+    kernelModules = [ "nvidia" ];
+    luks.fido2Support = false; # Cuz systemd
+    luks.devices.${luksMapperName} = {
+      crypttabExtraOpts = ["fido2-device=auto"];
+    };
+  };
+  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
   # Disable hibernate
   systemd = {
