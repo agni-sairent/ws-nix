@@ -117,7 +117,7 @@
   services.displayManager = {
 	autoLogin.enable = true;
 	autoLogin.user = "agni";
-  }
+  };
 
   nixpkgs.config.allowUnfree = true;
 
