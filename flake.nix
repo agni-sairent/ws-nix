@@ -62,7 +62,7 @@
             nixpkgs.overlays = [ overlay ];
             environment.systemPackages = [
               pkgs.opencode
-              pkgs.sbctl
+#              pkgs.sbctl
             ];
             # Lanzaboote replaces the systemd-boot module.
 #            boot.loader.systemd-boot.enable = lib.mkForce false;
