@@ -29,6 +29,7 @@
       home-manager,
       plasma-manager,
       antigravity-module,
+      lanzaboote,
       ...
     }@inputs:
     let
