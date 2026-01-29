@@ -21,13 +21,11 @@ in {
   # disk att is defined in HW configuration
   boot.initrd = {
     systemd.enable = true;
-    kernelModules = [ "nvidia" ];
     luks.fido2Support = false; # Cuz systemd
     luks.devices.${luksMapperName} = {
       crypttabExtraOpts = ["fido2-device=auto"];
     };
   };
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
   # Disable hibernate
   systemd = {
