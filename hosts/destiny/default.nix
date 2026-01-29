@@ -50,8 +50,8 @@
 
     nvidiaSettings = true;
 
-    #package = config.boot.kernelPackages.nvidiaPackages.stable;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+	# Latest = basically beta - broked a lot; stable - i guess better
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # This value determines the NixOS release from which the default
