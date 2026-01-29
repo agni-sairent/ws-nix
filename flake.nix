@@ -58,7 +58,7 @@
             home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ];
             home-manager.users.agni = import ./hosts/hippaforalkus/home.nix;
           }
-          ({ pkgs, libs, ... }: {
+          ({ pkgs, lib, ... }: {
             nixpkgs.overlays = [ overlay ];
             environment.systemPackages = [
               pkgs.opencode
