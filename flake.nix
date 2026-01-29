@@ -82,7 +82,7 @@
             nixpkgs.overlays = [ overlay ];
             environment.systemPackages = [
               pkgs.opencode
-              pkgs.sbctl
+              # pkgs.sbctl
             ];
             # Broken with nvidia - minimal value
 #            # Lanzaboote replaces the systemd-boot module.
